@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Start"
+length = 0.1
+
+[node name="World" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 32 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -128 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start"
+anims/Start = SubResource( 1 )
